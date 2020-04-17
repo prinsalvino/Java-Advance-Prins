@@ -1,12 +1,12 @@
 package nl.inholland.myfirstapi.model;
 
-public class Guitar {
+public class Car {
     private long id;
     private String brand;
     private String model;
     private double price;
 
-    public Guitar(long id, String brand, String model, double price) {
+    public Car(long id, String brand, String model, double price) {
         this.id = id;
         this.brand = brand;
         this.model = model;
