@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.*;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 @Service
 public class CarService {
@@ -23,20 +24,20 @@ public class CarService {
     }
 
     public List<Car> getSortedCars(){
-        Collections.sort(cars,(c1,c2)-> (int) (c1.getPrice() - c2.getPrice()));
-        return cars;
+        List<Car> sortedCars = cars.stream().collect(Collectors.toList());
+        Collections.sort(sortedCars,(c1,c2)-> (int) (c1.getPrice() - c2.getPrice()));
+        return sortedCars;
     }
 
-    public Car filterBrand(){
-        Predicate<Car> c = s -> s.getBrand() == "BMW";
-        boolean bmw = c.test(cars.get(0));
-        Car car;
-        if (bmw){
-             car = cars.get(0);
-        }
-        else{
-             car = cars.get(2);
-        }
-        return  car;
+    public List<Car> filterBrandBMW(){
+        Predicate<Car> p = c -> c.getBrand().equals("BMW");
+        List<Car> listBMW = cars.stream().filter(p).collect(Collectors.toList());
+        return  listBMW;
+    }
+
+    public List<Car> filterBrandMercedes(){
+        Predicate<Car> p = c -> c.getBrand().equals("Mercedes");
+        List<Car> listMercedes = cars.stream().filter(p).collect(Collectors.toList());
+        return  listMercedes;
     }
 }

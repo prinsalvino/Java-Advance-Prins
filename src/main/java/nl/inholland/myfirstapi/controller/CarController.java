@@ -18,7 +18,7 @@ public class CarController {
     @Autowired
     private CarService carService;
 
-    @RequestMapping(value = "getall", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Car>> getAllCars(){
         return ResponseEntity.status(200).body(carService.getCars());
     }
@@ -27,8 +27,13 @@ public class CarController {
     public ResponseEntity<List<Car>> getSortedCarPrice(){
         return ResponseEntity.status(200).body(carService.getSortedCars());
     }
-    @RequestMapping(value = "filterbrand", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Car> filterCarBrand(){
-        return  ResponseEntity.status(200).body(carService.filterBrand());
+    @RequestMapping(value = "filterbrandbmw", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Car>> filterCarBMW(){
+        return  ResponseEntity.status(200).body(carService.filterBrandBMW());
+    }
+
+    @RequestMapping(value = "filterbrandmercedes", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Car>> filterCarMercedes(){
+        return  ResponseEntity.status(200).body(carService.filterBrandMercedes());
     }
 }
