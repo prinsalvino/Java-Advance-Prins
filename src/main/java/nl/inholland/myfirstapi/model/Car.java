@@ -1,4 +1,11 @@
 package nl.inholland.myfirstapi.model;
+import lombok.*;
+
+@Getter
+@Setter
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 
 public class Car {
     private long id;
@@ -6,54 +13,11 @@ public class Car {
     private String model;
     private double price;
 
-    public Car(long id, String brand, String model, double price) {
-        this.id = id;
-        this.brand = brand;
-        this.model = model;
-        this.price = price;
-    }
-
-
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getBrand() {
-        return brand;
-    }
-
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
-    }
-
-    public double getPrice() {
-        return price;
-    }
 
     public void setPrice(double price) {
+        if (price < 0){
+            throw new IllegalArgumentException();
+        }
         this.price = price;
-    }
-
-    @Override
-    public String toString() {
-        return "Guitar{" +
-                "id=" + id +
-                ", brand='" + brand + '\'' +
-                ", model='" + model + '\'' +
-                ", price=" + price +
-                '}';
     }
 }

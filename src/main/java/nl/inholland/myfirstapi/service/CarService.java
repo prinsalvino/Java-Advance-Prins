@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
-
 @Service
 public class CarService {
     List<Car> cars;
