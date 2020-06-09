@@ -23,8 +23,8 @@ public class CarController {
     public ResponseEntity<List<Car>> getAllCars(){
         return ResponseEntity.status(200).body(carService.getCars());
     }
-
     @RequestMapping(value = "sortedcars", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+
     public ResponseEntity<List<Car>> getSortedCarPrice(){
         return ResponseEntity.status(200).body(carService.getSortedCars());
     }

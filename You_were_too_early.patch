@@ -1,0 +1,32 @@
+Index: src/test/resources/features/cars.feature
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/test/resources/features/cars.feature	(revision 3748591890232379cd61f10ac3af813c48bc2e67)
++++ src/test/resources/features/cars.feature	(date 1590587896870)
+@@ -1,1 +1,3 @@
+-Feature: Handle All Feature of Cars
+\ No newline at end of file
++Feature: Handle All Feature of Cars
++  Scenario: First test
++    When I call my endpoint
+\ No newline at end of file
+Index: src/test/java/nl/inholland/myfirstapi/MyStepdefs.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/test/java/nl/inholland/myfirstapi/MyStepdefs.java	(date 1590587928097)
++++ src/test/java/nl/inholland/myfirstapi/MyStepdefs.java	(date 1590587928097)
+@@ -0,0 +1,10 @@
++package nl.inholland.myfirstapi;
++
++import io.cucumber.java.en.When;
++
++public class MyStepdefs {
++  @When("I call my endpoint")
++  public void iCallMyEndpoint() {
++    System.out.println("Running the first test");
++  }
++}
